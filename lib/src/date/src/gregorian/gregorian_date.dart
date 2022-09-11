@@ -238,7 +238,11 @@ class Gregorian implements Date, Comparable<Gregorian> {
 
   /// Converts a Gregorian date to Jalali.
   Jalali toJalali() {
-    return Jalali.fromJulianDayNumber(julianDayNumber);
+    return Jalali.fromJulianDayNumber(julianDayNumber).copy(
+      hour: hour,
+      minute: minute,
+      second: second,
+    );
   }
 
   /// Checks if a year is a leap year or not.
